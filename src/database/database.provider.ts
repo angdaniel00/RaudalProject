@@ -11,6 +11,7 @@ import { RegistroContabilidad } from '../entities/registro.entity';
 import { Resumen } from '../entities/resumen.entity';
 import { Subcontrata } from '../entities/subcontrata.entity';
 import { Subobra } from '../entities/subobra.entity';
+import { UserEntity } from '../entities/user.entity';
 
 export const databaseProviders = [
   {
@@ -23,7 +24,8 @@ export const databaseProviders = [
       username: 'postgres',
       password: 'BlackWasp00',
       database: 'raudal',
-      entities: [Cierre, Contrato, InfContrato, Inversionista, Obra, PlanAnual, PlanPreparacionObra, RegistroContabilidad, Resumen, Subcontrata, Subobra],
+      entities: [Cierre, Contrato, InfContrato, Inversionista, Obra, PlanAnual, PlanPreparacionObra, RegistroContabilidad, 
+        Resumen, Subcontrata, Subobra, UserEntity],
       synchronize: true,
     }),
   },

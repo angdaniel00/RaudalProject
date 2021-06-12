@@ -11,9 +11,10 @@ import {RegistroContabilidad} from '../entities/registro.entity';
 import {Resumen} from '../entities/resumen.entity';
 import {Subcontrata} from '../entities/subcontrata.entity';
 import {Subobra} from '../entities/subobra.entity';
+import {UserEntity} from '../entities/user.entity';
 import {CIERRE_REPOSITORY, CONTRATO_REPOSITORY, DATABASE_CONNECTION, INFCONTRATO_REPOSITORY, INVERSIONISTA_REPOSITORY,
 OBRA_REPOSITORY, PLANANUAL_REPOSITORY, PLANPRE_REPOSITORY, REGISTRO_REPOSITORY, RESUMEN_REPOSITORY, SUBCONTRATA_REPOSITORY,
-SUBOBRA_REPOSITORY} from '../util/constant';
+SUBOBRA_REPOSITORY, USER_AUTH_REPOSITORY} from '../util/constant';
 
 export const cierreProviders = [
   {
@@ -99,6 +100,14 @@ export const contratoProviders = [
     {
       provide: SUBOBRA_REPOSITORY,
       useFactory: (connection: Connection) => connection.getRepository(Subobra),
+      inject: [DATABASE_CONNECTION],
+    },
+  ];
+
+  export const usersProviders = [
+    {
+      provide: USER_AUTH_REPOSITORY,
+      useFactory: (connection: Connection) => connection.getRepository(UserEntity),
       inject: [DATABASE_CONNECTION],
     },
   ];

@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Injectable, Inject, HttpStatus } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { Cierre } from '../entities/cierre.entity';
 import {CIERRE_REPOSITORY} from '../util/constant';
