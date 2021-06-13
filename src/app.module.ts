@@ -16,6 +16,8 @@ import { SubcontrataModule } from './modules/subcontrata.module';
 import { SubobraModule } from './modules/subobra.module';
 import { AuthModule } from './auth/auth.module';
 import { DatabaseModule } from './database/database.module';
+import { CacheModule } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -27,6 +29,11 @@ import { DatabaseModule } from './database/database.module';
       limit: 10,
     }),
     AuthModule,
+    CacheModule.register(),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],

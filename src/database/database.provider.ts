@@ -19,11 +19,11 @@ export const databaseProviders = [
     useFactory: async () =>
       await createConnection({
         type: 'postgres',
-        host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'BlackWasp00',
-      database: 'raudal',
+        host: process.env.DATABASE_HOST,
+      port: parseInt(process.env.DATABASE_PORT, 10),
+      username: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
       entities: [Cierre, Contrato, InfContrato, Inversionista, Obra, PlanAnual, PlanPreparacionObra, RegistroContabilidad, 
         Resumen, Subcontrata, Subobra, UserEntity],
       synchronize: true,

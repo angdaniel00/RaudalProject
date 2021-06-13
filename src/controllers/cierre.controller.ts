@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Delete, Put, Param, Body, HttpStatus, Res } from "@nestjs/common";
+import { Controller, Get, Post, Delete, Put, Param, Body, UseGuards } from "@nestjs/common";
 import { Cierre } from "../entities/cierre.entity";
 import { CierreService } from "../services/cierre.service";
 import { CierreModel } from '../models/cierre.model';
 import { transformCierre } from '../util/util';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller('cierre')
 export class CierreController {
     constructor(private readonly cierreService: CierreService){
